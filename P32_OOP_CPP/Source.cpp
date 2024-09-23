@@ -1,7 +1,7 @@
-﻿
-#include <iostream>
+#include<iostream>
 
 #include"Student.h"
+#include"Fraction.h"
 
 using namespace std;
 
@@ -16,6 +16,10 @@ int main()
     /*cout << st.getName() << endl;
     cout << st.getAge() << endl;*/
 
-    st.info();
-    
+    st.info(); // info(st);
+
+    Fraction f1;
+    Fraction f2;
+    Fraction f3 = f1.add(f2);
+
 }
