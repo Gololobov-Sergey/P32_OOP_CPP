@@ -14,5 +14,6 @@ public:
 
 Fraction Fraction::add(Fraction f)
 {
-	int a = ch + f.ch;
+	int a = this->ch + f.ch;
+	return Fraction();
 }
