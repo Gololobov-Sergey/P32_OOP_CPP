@@ -10,13 +10,15 @@ class Array
 
 
 public:
-	Array(int size);
+	explicit Array(int size);
+
+	Array(const Array& obj);
 
 	~Array();
 
-	void set();
+	void set() const;
 
-	void show();
+	void show() const;
 
 	void append(int value);
 
@@ -24,19 +26,19 @@ public:
 
 	void insert(int value, int index);
 
-	int length();
+	int length() const;
 
 	void remove(int index);
 
 	void clear();
 
-	int sum();
+	int sum() const;
 
-	int max();
+	int max() const;
 
-	int min();
+	int min() const;
 
-	int* get();
+	int* get() const;
 
 };
 
@@ -47,13 +49,24 @@ Array::Array(int size)
 	cout << "Constructor" << endl;
 }
 
+Array::Array(const Array& obj)
+{
+	cout << "Constructor copy" << endl;
+	this->size = obj.size;
+	this->arr = new int[this->size];
+	for (size_t i = 0; i < this->size; i++)
+	{
+		this->arr[i] = obj.arr[i];
+	}
+}
+
 Array::~Array()
 {
 	cout << "Destructor" << endl;
 	delete arr;
 }
 
-void Array::set()
+void Array::set() const
 {
 	srand(time(0));
 	for (size_t i = 0; i < size; i++)
@@ -62,7 +75,7 @@ void Array::set()
 	}
 }
 
-void Array::show()
+void Array::show() const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -84,7 +97,7 @@ void Array::append(int value)
 	size++;
 }
 
-int* Array::get()
+int* Array::get() const
 {
 	return arr;
 }
