@@ -20,21 +20,48 @@ int main()
 	// :: -> * sizeof ?:
 	// + - * / % += -= *= /= %= 
 	// ++ -- - +
+	// !
+	// > < >= <= == !=
 
-
-	Fraction f1(1, 3);
+	Fraction f1(12, 3);
 	Fraction f2(2, 5);
 	//Fraction f3 = f1.add(f2);
-	Fraction f3 = f1 + f2; // f1.operator+(f2)
-	f3.info();
+	//Fraction f3 = f1 + f2; // f1.operator+(f2)
+	//f3.info();
 
-	f3 = +f1;
+	////f3 = ++f1;
+	//f3 = f1++;
+	//f3.info();
+	//f1.info();
+	////f3 = f1++;
+
+	//f2 += f1; // f3 = f3 + f1
 	
-	f3.info();
+	//f2.info();
+
+	//float ff = f1;
+	//cout << ff << endl;
+
+	f2 = f2 + 10;
+	f2 = 10 + f2;
+
+	if (f1 > f2)
+	{
+		cout << "Yes" << endl;
+	}
+	else
+	{
+		cout << "No" << endl;
+	}
 
 	int a = 5;
 	int b;
-	b = +a;
+	b = ++a;
+	b = a++;
+	if (a)
+	{
+
+	}
 	
 
 
