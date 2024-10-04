@@ -15,11 +15,36 @@ void func(String a)
 int main()
 {
 
+	// 04.10.2024 ---------------------------------------
+
+	// :: -> * sizeof ?:
+	// + - * / % += -= *= /= %= 
+	// ++ -- - +
+
+
+	Fraction f1(1, 3);
+	Fraction f2(2, 5);
+	//Fraction f3 = f1.add(f2);
+	Fraction f3 = f1 + f2; // f1.operator+(f2)
+	f3.info();
+
+	f3 = +f1;
+	
+	f3.info();
+
+	int a = 5;
+	int b;
+	b = +a;
+	
+
+
 	// 30.09.2024 ---------------------------------------
 
-	String s("mama");
-	func("mama");
-	func(20);
+	/*String s;
+	s.print();
+	s.set();
+	s.print();*/
+	
 
 
 	/*int a = 5;
