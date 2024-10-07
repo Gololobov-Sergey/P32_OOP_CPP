@@ -1,5 +1,6 @@
 #pragma once
 #include<iostream>
+#include<cassert>
 
 using namespace std;
 
@@ -14,11 +15,15 @@ public:
 
 	Array(const Array& obj);
 
+	Array& operator=(const Array& obj);
+
 	~Array();
+
+	void copy(const Array& obj);
 
 	void set() const;
 
-	void show() const;
+	void print() const;
 
 	void append(int value);
 
@@ -32,13 +37,18 @@ public:
 
 	void clear();
 
-	int sum() const;
+	/*int sum() const;
 
 	int max() const;
 
-	int min() const;
+	int min() const;*/
 
 	int* get() const;
+
+	int& operator[](int index);
+
+	// TODO
+
 
 };
 
@@ -52,18 +62,35 @@ Array::Array(int size)
 Array::Array(const Array& obj)
 {
 	cout << "Constructor copy" << endl;
-	this->size = obj.size;
-	this->arr = new int[this->size];
-	for (size_t i = 0; i < this->size; i++)
-	{
-		this->arr[i] = obj.arr[i];
-	}
+	this->copy(obj);
+}
+
+Array& Array::operator=(const Array& obj)
+{
+	if (&obj == this)
+		return *this;
+
+	delete this->arr;
+
+	this->copy(obj);
+
+	return *this;
 }
 
 Array::~Array()
 {
 	cout << "Destructor" << endl;
 	delete arr;
+}
+
+void Array::copy(const Array& obj)
+{
+	this->size = obj.size;
+	this->arr = new int[this->size];
+	for (size_t i = 0; i < this->size; i++)
+	{
+		this->arr[i] = obj.arr[i];
+	}
 }
 
 void Array::set() const
@@ -75,7 +102,7 @@ void Array::set() const
 	}
 }
 
-void Array::show() const
+void Array::print() const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -97,7 +124,31 @@ void Array::append(int value)
 	size++;
 }
 
+inline void Array::insert(int value, int index)
+{
+}
+
+inline int Array::length() const
+{
+	return 0;
+}
+
+inline void Array::remove(int index)
+{
+}
+
+inline void Array::clear()
+{
+}
+
 int* Array::get() const
 {
 	return arr;
+}
+
+int& Array::operator[](int index)
+{
+	assert(index >= 0 && index < size);
+
+	return arr[index];
 }
