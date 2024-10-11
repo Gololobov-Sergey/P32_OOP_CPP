@@ -4,9 +4,10 @@
 
 using namespace std;
 
+template<class T>
 class Array
 {
-	int* arr;
+	T* arr;
 	int size;
 
 
@@ -25,11 +26,11 @@ public:
 
 	void print() const;
 
-	void append(int value);
+	void append(T value);
 
 	// TODO
 
-	void insert(int value, int index);
+	void insert(T value, int index);
 
 	int length() const;
 
@@ -43,29 +44,32 @@ public:
 
 	int min() const;*/
 
-	int* get() const;
+	T* get() const;
 
-	int& operator[](int index);
+	T& operator[](int index);
 
 	// TODO
 
-
+	void func();
 };
 
-Array::Array(int size)
+template<class T>
+Array<T>::Array(int size)
 {
 	this->size = size;
-	this->arr = new int[size];
+	this->arr = new T[size];
 	cout << "Constructor" << endl;
 }
 
-Array::Array(const Array& obj)
+template<class T>
+Array<T>::Array(const Array& obj)
 {
 	cout << "Constructor copy" << endl;
 	this->copy(obj);
 }
 
-Array& Array::operator=(const Array& obj)
+template<class T>
+Array<T>& Array<T>::operator=(const Array<T>& obj)
 {
 	if (&obj == this)
 		return *this;
@@ -77,23 +81,26 @@ Array& Array::operator=(const Array& obj)
 	return *this;
 }
 
-Array::~Array()
+template<class T>
+Array<T>::~Array()
 {
 	cout << "Destructor" << endl;
 	delete arr;
 }
 
-void Array::copy(const Array& obj)
+template<class T>
+void Array<T>::copy(const Array& obj)
 {
 	this->size = obj.size;
-	this->arr = new int[this->size];
+	this->arr = new T[this->size];
 	for (size_t i = 0; i < this->size; i++)
 	{
 		this->arr[i] = obj.arr[i];
 	}
 }
 
-void Array::set() const
+template<class T>
+void Array<T>::set() const
 {
 	srand(time(0));
 	for (size_t i = 0; i < size; i++)
@@ -102,7 +109,28 @@ void Array::set() const
 	}
 }
 
-void Array::print() const
+template<>
+void Array<float>::set() const
+{
+	srand(time(0));
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = (rand() % 10 + 1) / 99.;
+	}
+}
+
+template<>
+void Array<Fraction>::set() const
+{
+	srand(time(0));
+	for (size_t i = 0; i < size; i++)
+	{
+		arr[i] = Fraction((rand() % 10 + 1), rand() % 10 + 2);
+	}
+}
+
+template<class T>
+void Array<T>::print() const
 {
 	for (size_t i = 0; i < size; i++)
 	{
@@ -111,9 +139,10 @@ void Array::print() const
 	cout << endl;
 }
 
-void Array::append(int value)
+template<class T>
+void Array<T>::append(T value)
 {
-	int* temp = new int[size + 1];
+	T* temp = new T[size + 1];
 	for (size_t i = 0; i < size; i++)
 	{
 		temp[i] = arr[i];
@@ -124,31 +153,43 @@ void Array::append(int value)
 	size++;
 }
 
-inline void Array::insert(int value, int index)
+template<class T>
+void Array<T>::insert(T value, int index)
 {
 }
 
-inline int Array::length() const
+template<class T>
+int Array<T>::length() const
 {
 	return 0;
 }
 
-inline void Array::remove(int index)
+template<class T>
+void Array<T>::remove(int index)
 {
 }
 
-inline void Array::clear()
+template<class T>
+void Array<T>::clear()
 {
 }
 
-int* Array::get() const
+template<class T>
+T* Array<T>::get() const
 {
 	return arr;
 }
 
-int& Array::operator[](int index)
+template<class T>
+T& Array<T>::operator[](int index)
 {
 	assert(index >= 0 && index < size);
 
 	return arr[index];
+}
+
+template<class T>
+void Array<T>::func()
+{
+
 }

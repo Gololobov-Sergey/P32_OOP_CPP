@@ -184,6 +184,7 @@ public:
 		return !ch;
 	}
 
+	friend ostream& operator<<(ostream& out, const Fraction& f);
 };
 
 Fraction operator+(int n, Fraction f2)
@@ -197,3 +198,9 @@ Fraction operator+(int n, Fraction f2)
 //    int zn = f1.getZn() * f2.getZn();
 //    return Fraction(ch, zn);
 //}
+
+ostream& operator<<(ostream& out, const Fraction& f)
+{
+	out << f.ch << "/" << f.zn << endl;
+	return out;
+}

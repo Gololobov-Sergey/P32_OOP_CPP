@@ -7,44 +7,49 @@
 
 using namespace std;
 
-void func(Array a)
+template<class T>
+void func(Array<T> a)
 {
 	a.print();
 }
 
 int main()
 {
+	Fraction f(2, 5);
+	void* p = &f;
+	cout << *((Fraction*)p) << endl;
 
 
 	// 07.10.2024 ---------------------------------------
 
-	Array a(10);
+	Array<Fraction> a(10);
 	a.set();
 	a.print();
+
 	//a[2] = 100;
 	//cout << a[2] << endl;
-	//func(a);
+	func(a);
 
-	Array b(5);
-	//
-	b = a;
-	b.print();
+	//Array b(5);
+	////
+	//b = a;
+	//b.print();
 
-	String s1("mama");
-	String s2("mama");
-	String s3 = s2 + s1;
-	cin >> s3;
-	cout << s3 << endl;
-	cout << s1.compare(s2) << endl;
+	//String s1("mama");
+	//String s2("mama");
+	//String s3 = s2 + s1;
+	//cin >> s3;
+	//cout << s3 << endl;
+	//cout << s1.compare(s2) << endl;
 
-	if (s1 == s2)
-	{
-		cout << "S1" << endl;
-	}
-	else
-	{
-		cout << "S2" << endl;
-	}
+	//if (s1 == s2)
+	//{
+	//	cout << "S1" << endl;
+	//}
+	//else
+	//{
+	//	cout << "S2" << endl;
+	//}
 
 
 
