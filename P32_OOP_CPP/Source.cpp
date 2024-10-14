@@ -4,6 +4,7 @@
 #include"Fraction.h"
 #include"Array.h"
 #include"String.h"
+#include"Stack.h"
 
 using namespace std;
 
@@ -13,22 +14,99 @@ void func(Array<T> a)
 	a.print();
 }
 
+int priority(char op)
+{
+	switch (op)
+	{
+	case '+': case'-': return 1;
+	case '*': case'/': return 2;
+	}
+}
+
+int calc(int a, int b, char op)
+{
+	switch (op)
+	{
+	case '+': return a + b;
+	case '-': return a - b;
+	case '*': return a * b;
+	case '/': return a / b;
+	}
+}
+
 int main()
 {
-	Fraction f(2, 5);
+
+
+	// 14.10.2024 ---------------------------------------
+
+	/*Stack<int> s;
+	s.push(10);
+	s.push(13);
+	s.push(11);
+	s.push(18);
+	s.print();
+	s.pop();
+	s.print();
+	if (!s.isEmpty())
+	{
+		int a = s.peek();
+		cout << a << endl;
+	}
+	s.clear();
+	if (s.isEmpty())
+	{
+		cout << "Stack empty" << endl;
+	}*/
+
+
+	char expr[] = "3+2*4+3*4+5";
+	Stack<int> number;
+	Stack<char> oper;
+
+	int i = 0;
+	while (expr[i] != '\0')
+	{
+		if (isdigit(expr[i]))
+			number.push(expr[i]-48);
+		else
+		{
+			if (oper.isEmpty() || priority(expr[i]) <= priority(oper.peek()))
+			{
+				oper.push(expr[i]);
+			}
+			else
+			{
+				int a = number.peek();
+				number.pop();
+				int b = number.peek();
+				number.pop();
+				char op = oper.peek();
+				oper.pop();
+				int res = calc(a, b, op);
+				number.push(res);
+				oper.push(expr[i]);
+			}
+		}
+		i++;
+	}
+	int cc = 9;
+
+
+	/*Fraction f(2, 5);
 	void* p = &f;
-	cout << *((Fraction*)p) << endl;
+	cout << *((Fraction*)p) << endl;*/
 
 
 	// 07.10.2024 ---------------------------------------
 
-	Array<Fraction> a(10);
+	/*Array<Fraction> a(10);
 	a.set();
-	a.print();
+	a.print();*/
 
 	//a[2] = 100;
 	//cout << a[2] << endl;
-	func(a);
+	//func(a);
 
 	//Array b(5);
 	////
