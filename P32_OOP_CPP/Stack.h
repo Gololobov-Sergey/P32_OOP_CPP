@@ -19,7 +19,7 @@ public:
 	Stack(const Stack& obj);
 	Stack& operator=(const Stack& obj);
 
-	void push(T value);
+	void push(const T& value);
 	void pop();
 	T peek();
 	bool isEmpty() const;
@@ -54,7 +54,7 @@ Stack<T>& Stack<T>::operator=(const Stack<T>& obj)
 }
 
 template<class T>
-void Stack<T>::push(T value)
+void Stack<T>::push(const T& value)
 {
 	if (size == 0)
 	{

@@ -1,10 +1,13 @@
 #include<iostream>
+#include<Windows.h>
 
 #include"Student.h"
 #include"Fraction.h"
 #include"Array.h"
 #include"String.h"
 #include"Stack.h"
+#include"Queue.h"
+#include"BusStation.h"
 
 using namespace std;
 
@@ -20,6 +23,7 @@ int priority(char op)
 	{
 	case '+': case'-': return 1;
 	case '*': case'/': return 2;
+	case '^':          return 3;
 	}
 }
 
@@ -28,14 +32,67 @@ int calc(int a, int b, char op)
 	switch (op)
 	{
 	case '+': return a + b;
-	case '-': return a - b;
+	case '-': return b - a;
 	case '*': return a * b;
-	case '/': return a / b;
+	case '/': return b / a;
+	case '^': return pow(b, a);
 	}
 }
 
+void addTime(People& p)
+{
+	p.addTime();
+}
+
+
 int main()
 {
+
+	// 18.10.2024 ---------------------------------------
+
+
+	Queue<People> p;
+	/*p.enqueue(People());
+	p.enqueue(People());
+	p.enqueue(People());
+	p.enqueue(People());
+	p.enqueue(People());
+
+	p.for_each(addTime);*/
+
+
+
+	int i = 0;
+	while (true)
+	{
+		if (i % 2 == 0)
+		{
+			p.enqueue(People());
+		}
+
+		if (i % 10 == 0)
+		{
+			
+		}
+
+		p.for_each(addTime);
+		i++;
+		Sleep(1000);
+	}
+
+
+
+	/*Queue<int> q = { 1,3,5,7,9 };
+	q.print();
+	q.enqueue(99);
+	q.print();
+	q.dequeue();
+	q.print();
+	q.ring();
+	q.ring();
+	q.print();
+	q.clear();
+	q.print();*/
 
 
 	// 14.10.2024 ---------------------------------------
@@ -47,8 +104,8 @@ int main()
 	s.push(18);
 	s.print();
 	s.pop();
-	s.print();
-	if (!s.isEmpty())
+	s.print();*/
+	/*if (!s.isEmpty())
 	{
 		int a = s.peek();
 		cout << a << endl;
@@ -60,7 +117,7 @@ int main()
 	}*/
 
 
-	char expr[] = "3+2*4+3*4+5";
+	/*char expr[] = "2+2*4^2+2";
 	Stack<int> number;
 	Stack<char> oper;
 
@@ -71,27 +128,50 @@ int main()
 			number.push(expr[i]-48);
 		else
 		{
-			if (oper.isEmpty() || priority(expr[i]) <= priority(oper.peek()))
+			if (oper.isEmpty())
 			{
 				oper.push(expr[i]);
 			}
 			else
 			{
-				int a = number.peek();
-				number.pop();
-				int b = number.peek();
-				number.pop();
-				char op = oper.peek();
-				oper.pop();
-				int res = calc(a, b, op);
-				number.push(res);
-				oper.push(expr[i]);
+				if (priority(expr[i]) <= priority(oper.peek()))
+				{
+					while (priority(expr[i]) < priority(oper.peek()))
+					{
+						int a = number.peek();
+						number.pop();
+						int b = number.peek();
+						number.pop();
+						char op = oper.peek();
+						oper.pop();
+						int res = calc(a, b, op);
+						number.push(res);
+						
+					}
+					oper.push(expr[i]);
+				}
+				else
+				{
+					oper.push(expr[i]);
+				}
 			}
 		}
 		i++;
 	}
-	int cc = 9;
 
+	while (!oper.isEmpty())
+	{
+		int a = number.peek();
+		number.pop();
+		int b = number.peek();
+		number.pop();
+		char op = oper.peek();
+		oper.pop();
+		int res = calc(a, b, op);
+		number.push(res);
+	}
+
+	cout << expr << " = " << number.peek() << endl;*/
 
 	/*Fraction f(2, 5);
 	void* p = &f;
