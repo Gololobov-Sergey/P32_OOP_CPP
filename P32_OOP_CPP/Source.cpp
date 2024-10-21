@@ -8,6 +8,8 @@
 #include"Stack.h"
 #include"Queue.h"
 #include"BusStation.h"
+#include"Staple.h"
+#include"PrintServer.h"
 
 using namespace std;
 
@@ -39,7 +41,7 @@ int calc(int a, int b, char op)
 	}
 }
 
-void addTime(People& p)
+void incTime(People& p)
 {
 	p.addTime();
 }
@@ -48,10 +50,40 @@ void addTime(People& p)
 int main()
 {
 
+
+	string file[] = { "file1.doc", "file2.xls", "file3.txt", "file4.pdf" };
+
+
+	PrintServer ps("10.6.6.152");
+	int i = 0;
+	while (true)
+	{
+		if (i % 7 == 0)
+		{
+			Task task(file[rand() % 4], rand() % 4 + 4, (DEPARTMENT)(rand() % 3));
+			ps.addTask(task, task.getDepartment());
+		}
+		ps.work();
+		i++;
+		Sleep(500);
+	}
+
+
+
+	/*PriorityQueue<int> q;
+	q.enqueue(10, 2);
+	q.enqueue(5, 3);
+	q.enqueue(15, 1);
+	q.print();
+	q.enqueue(11, 4);
+	q.enqueue(11, 3);
+	q.print();
+	cout << q.peek() << endl;*/
+
 	// 18.10.2024 ---------------------------------------
 
 
-	Queue<People> p;
+	//Queue<People> p;
 	/*p.enqueue(People());
 	p.enqueue(People());
 	p.enqueue(People());
@@ -62,7 +94,9 @@ int main()
 
 
 
-	int i = 0;
+	//PriorityQueue<People> pp;
+
+	/*int i = 0;
 	while (true)
 	{
 		if (i % 2 == 0)
@@ -75,10 +109,10 @@ int main()
 			
 		}
 
-		p.for_each(addTime);
+		p.for_each(incTime);
 		i++;
 		Sleep(1000);
-	}
+	}*/
 
 
 

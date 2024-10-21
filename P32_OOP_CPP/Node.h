@@ -1,11 +1,13 @@
 #pragma once
 
-template<class T>
+template<class T, class TPri = int>
 struct Node
 {
 	T value;
 	Node* next;
+	TPri priority;
 
-	Node(T value, Node* n = nullptr): value(value), next(n){}
+	Node(T value): value(value), next(nullptr), priority(TPri()) {}
+	Node(T value, TPri pri): value(value), next(nullptr), priority(pri) {}
 };
 
