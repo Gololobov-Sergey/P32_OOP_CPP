@@ -94,5 +94,9 @@ public:
 		cout << "Waiting:" << endl;
 		cout << "----------------------------" << endl;
 		qPrint.print();
+
+		leftTime--;
+
+
 	}
 };

@@ -10,6 +10,8 @@
 #include"BusStation.h"
 #include"Staple.h"
 #include"PrintServer.h"
+#include"ForwardList.h"
+#include"List.h"
 
 using namespace std;
 
@@ -49,9 +51,40 @@ void incTime(People& p)
 
 int main()
 {
+	// 25.10.2024 ---------------------------------------
+
+	List<int> l;
+	l.push_back(10);
+	l.push_back(40);
+	l.push_back(50);
+	l.push_back(70);
+	l.print();
+	l.insert(100, 1);
+	l.print();
 
 
-	string file[] = { "file1.doc", "file2.xls", "file3.txt", "file4.pdf" };
+
+	//ForwardList<int> fl;
+	///*fl.push_back(10);
+	//fl.push_back(20);
+	//fl.print();
+
+	//fl.push_front(30);
+	//fl.print();
+
+	//fl.insert(40, 2);
+	//fl.print();*/
+
+	///*fl.pop_back();
+	//fl.print();
+
+	//fl.pop_front();
+	//fl.print();*/
+
+	//fl.remove(2);
+	//fl.print();
+
+	/*string file[] = { "file1.doc", "file2.xls", "file3.txt", "file4.pdf" };
 
 
 	PrintServer ps("10.6.6.152");
@@ -66,7 +99,7 @@ int main()
 		ps.work();
 		i++;
 		Sleep(500);
-	}
+	}*/
 
 
 
