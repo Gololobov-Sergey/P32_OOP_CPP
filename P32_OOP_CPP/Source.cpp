@@ -12,6 +12,7 @@
 #include"PrintServer.h"
 #include"ForwardList.h"
 #include"List.h"
+#include"BTree.h"
 
 using namespace std;
 
@@ -49,18 +50,49 @@ void incTime(People& p)
 }
 
 
+class Protocol
+{
+	string number;
+	string date;
+	int summa;
+	bool isPay;
+};
+
+
 int main()
 {
+	// 28.10.2024 ---------------------------------------
+
+
+
+	BTree<string, List<Protocol>*> base;
+
+
+	/*BTree<int, int> b;
+	cout << b.push_r(10, 10) << endl;
+	cout << b.push_r(1, 1) << endl;
+	cout << b.push_r(5, 5) << endl;
+	cout << b.push_r(20, 20) << endl;
+	cout << b.push_r(15, 15) << endl;
+
+	b.print();
+
+	b.remove(10);
+
+	b.print();*/
+
 	// 25.10.2024 ---------------------------------------
 
-	List<int> l;
+	/*List<int> l;
 	l.push_back(10);
 	l.push_back(40);
 	l.push_back(50);
 	l.push_back(70);
 	l.print();
 	l.insert(100, 1);
-	l.print();
+	l.remove(2);
+	
+	l.print();*/
 
 
 

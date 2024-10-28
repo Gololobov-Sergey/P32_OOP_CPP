@@ -28,18 +28,19 @@ public:
 
 	void print();
 
-	/*void pop_front();
+	void pop_front();
 	void pop_back();
+	
 	void remove(int index);
 
-	T front();
+	void clear();
+
+	/*T front();
 	T back();
 	T at(int index);
 
 	T& operator[](int index);
 
-	void clear();
-	
 	int length();
 
 	List operator+(const List& list);
@@ -88,7 +89,7 @@ List<T>::List(initializer_list<T> list)
 template<class T>
 List<T>::~List()
 {
-	//clear();
+	clear();
 }
 
 template<class T>
@@ -167,4 +168,55 @@ void List<T>::print()
 		temp = temp->next;
 	}
 	cout << endl;
+}
+
+template<class T>
+void List<T>::pop_front()
+{
+}
+
+template<class T>
+void List<T>::pop_back()
+{
+}
+
+template<class T>
+void List<T>::remove(int index)
+{
+	if (index < 0 || index >= size)
+	{
+		return;
+	}
+
+	if (index == 0)
+	{
+		pop_front();
+	}
+	else if (index == size - 1)
+	{
+		pop_back();
+	}
+	else
+	{
+		Node<T>* pos = getNode(index - 1);
+		Node<T>* temp = pos->next;
+		pos->next = pos->next->next;
+		pos->next->prev = pos;
+		delete temp;
+		size--;
+	}
+}
+
+template<class T>
+void List<T>::clear()
+{
+	Node<T>* temp = first;
+	while (temp)
+	{
+		first = first->next;
+		delete temp;
+		temp = first;
+	}
+	last = nullptr;
+	size = 0;
 }
