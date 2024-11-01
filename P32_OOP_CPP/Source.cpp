@@ -13,6 +13,8 @@
 #include"ForwardList.h"
 #include"List.h"
 #include"BTree.h"
+#include"Relation.h"
+#include"Inherit.h"
 
 using namespace std;
 
@@ -61,11 +63,44 @@ class Protocol
 
 int main()
 {
+
+	// 01.11.2024 ---------------------------------------
+
+
+	/*Human h;
+	
+	
+	
+	Teacher t("Vasya", 30, 1000);
+	t.info();*/
+
+	
+	BitString b1("10101000");
+	BitString b2("10101");
+	BitString b3 = b1 + b2;
+	cout << b3 << endl;
+
+	
+
+
+	/*Composition::Car car;
+	car.move();*/
+
+	/*Agregation::Engine* en1;
+	{
+		Agregation::Engine* en = new Agregation::Engine;
+		Agregation::Car car2(en);
+		car2.move();
+		en1 = car2.getEngine();
+	}*/
+
+	//en1->start();
+
 	// 28.10.2024 ---------------------------------------
 
 
 
-	BTree<string, List<Protocol>*> base;
+	//BTree<string, List<Protocol>*> base;
 
 
 	/*BTree<int, int> b;

@@ -6,7 +6,7 @@ using namespace std;
 
 class String
 {
-private:
+protected:
     char* str;
     int size;
 
@@ -201,4 +201,37 @@ istream& operator>>(istream& in, String& st)
     st.str = new char[st.size + 1];
     strcpy_s(st.str, st.size + 1, buff);
     return in;
+}
+
+
+class BitString : public String
+{
+public:
+
+    BitString(const char* str);
+
+    int find(char symbol) = delete;
+
+    BitString operator+(const BitString& st);
+
+};
+
+BitString::BitString(const char* str) : String(str)
+{
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        if (!(str[i] == '0' || str[i] == '1'))
+        {
+            this->str = new char[1];
+            this->size = 0;
+            strcpy_s(this->str, 1, "");
+            return;
+        }
+        i++;
+    }
+
+    this->size = strlen(str);
+    this->str = new char[this->size + 1];
+    strcpy_s(this->str, this->size + 1, str);
 }
