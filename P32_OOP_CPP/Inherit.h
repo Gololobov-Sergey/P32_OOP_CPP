@@ -24,6 +24,11 @@ public:
 		cout << "Ctor Human" << endl;
 	}
 
+	~Human()
+	{
+		cout << "Dest Human" << endl;
+	}
+
 	void info()
 	{
 		cout << name << " " << age << " " << phone << endl;
@@ -42,6 +47,12 @@ public:
 		this->phone = 99;
 	}
 
+	~Teacher()
+	{
+		cout << "Dest Teacher" << endl;
+	}
+	
+
 	void study()
 	{
 
@@ -57,5 +68,44 @@ public:
 class Stud : public Human
 {
 	
+};
+
+
+class A
+{
+private:
+	int a1;
+
+protected:
+	int a2;
+
+public:
+	int a3;
+
+	void A1() {}
+};
+
+class B : public A
+{
+private:
+	int b1;
+
+protected:
+	int b2;
+
+public:
+	int b3;
+
+	void B1()
+	{
+		//a1 = 3;
+		a2 = 5;
+		a3 = 9;
+	}
+
+	void A11()
+	{
+		A1();
+	}
 };
 

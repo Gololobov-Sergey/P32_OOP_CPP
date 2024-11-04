@@ -15,6 +15,7 @@
 #include"BTree.h"
 #include"Relation.h"
 #include"Inherit.h"
+#include"Zoo.h"
 
 using namespace std;
 
@@ -64,22 +65,60 @@ class Protocol
 int main()
 {
 
+	// 04.11.2024 ---------------------------------------
+
+
+	Animal* c = new Cat("Tom", 3, 10);
+	cout << c->getType() << endl;
+	delete c;
+
+	////Animal* a = new Animal("Animal", 5);
+	//Animal* c = new Cat("Tom", 3, 10);
+	//Animal* sc = new SiamCat("Murka", 3, 10);
+	//Animal* d = new Dog("Spike", 7);
+	//Animal* r = new Ravlik("Fedya", 1);
+
+	//Animal* an[] = { c, d, sc };
+
+	//for (size_t i = 0; i < 4; i++)
+	//{
+	//	cout << an[i]->getType() << endl;
+	//	cout << an[i]->voice() << endl;
+	//}
+
+	/*cout << a->getType() << endl;
+	cout << a->voice() << endl;
+
+	cout << c->getType() << endl;
+	cout << c->voice() << endl;
+
+	cout << d->getType() << endl;
+	cout << d->voice() << endl;*/
+
+
 	// 01.11.2024 ---------------------------------------
 
 
-	/*Human h;
+	/*Human h;*/
 	
 	
 	
-	Teacher t("Vasya", 30, 1000);
-	t.info();*/
+	/*Teacher t("Vasya", 30, 1000);
+	t.info();
+	
 
+	A a;
+	a.A1();
 	
-	BitString b1("10101000");
-	BitString b2("10101");
+	B b;
+	b.A11();*/
+	
+	
+	/*BitString b1("100");
+	BitString b2("110");
 	BitString b3 = b1 + b2;
-	cout << b3 << endl;
-
+	cout << b3 << endl;*/
+	// 1100
 	
 
 
