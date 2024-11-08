@@ -35,11 +35,15 @@ public:
 
 	void clear();
 
+	int length();
+
+	T& operator[](int index);
+
 	/*T front();
 	T back();
 	T at(int index);
 
-	T& operator[](int index);
+	
 
 	int length();
 
@@ -164,7 +168,7 @@ void List<T>::print()
 	Node<T>* temp = this->first;
 	while (temp)
 	{
-		cout << temp->value << " ";
+		cout << temp->value;
 		temp = temp->next;
 	}
 	cout << endl;
@@ -219,4 +223,16 @@ void List<T>::clear()
 	}
 	last = nullptr;
 	size = 0;
+}
+
+template<class T>
+int List<T>::length()
+{
+	return size;
+}
+
+template<class T>
+T& List<T>::operator[](int index)
+{
+	return getNode(index)->value;
 }

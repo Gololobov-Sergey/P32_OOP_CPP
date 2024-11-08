@@ -16,6 +16,7 @@
 #include"Relation.h"
 #include"Inherit.h"
 #include"Zoo.h"
+#include"WarOfWorld.h"
 
 using namespace std;
 
@@ -65,12 +66,17 @@ class Protocol
 int main()
 {
 
+
+	WarOfWorld war(5);
+	war.game();
+
+
 	// 04.11.2024 ---------------------------------------
 
 
-	Animal* c = new Cat("Tom", 3, 10);
+	/*Animal* c = new Cat("Tom", 3, 10);
 	cout << c->getType() << endl;
-	delete c;
+	delete c;*/
 
 	////Animal* a = new Animal("Animal", 5);
 	//Animal* c = new Cat("Tom", 3, 10);
