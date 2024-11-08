@@ -3,6 +3,7 @@
 #include<initializer_list>
 
 #include"Node.h"
+#include"function.h"
 
 using namespace std;
 
@@ -27,6 +28,8 @@ public:
 	void insert(const T& value, int index);
 
 	void print();
+
+	void print(int x, int y);
 
 	void pop_front();
 	void pop_back();
@@ -175,13 +178,35 @@ void List<T>::print()
 }
 
 template<class T>
+void List<T>::print(int x, int y)
+{
+	Node<T>* temp = this->first;
+	while (temp)
+	{
+		gotoxy(x, y);
+		cout << temp->value;
+		temp = temp->next;
+		y++;
+	}
+	cout << endl;
+}
+
+template<class T>
 void List<T>::pop_front()
 {
+	first = first->next;
+	delete first->prev;
+	first->prev = nullptr;
+	size--;
 }
 
 template<class T>
 void List<T>::pop_back()
 {
+	last = last->prev;
+	delete last->next;
+	last->next = nullptr;
+	size--;
 }
 
 template<class T>

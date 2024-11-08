@@ -190,9 +190,9 @@ public:
 			int c = rand() % 3;
 			switch (c)
 			{
-			case 0: l = new Crossbowman(rand() % 31 + 50, rand() % 26 + 10);
-			case 1: l = new Horseman(rand() % 31 + 50, rand() % 26 + 10);
-			case 2: l = new Swordsman(rand() % 31 + 50, rand() % 26 + 10);
+			case 0: l = new Crossbowman(rand() % 31 + 50, rand() % 26 + 10); break;
+			case 1: l = new Horseman(rand() % 31 + 50, rand() % 26 + 10); break;
+			case 2: l = new Swordsman(rand() % 31 + 50, rand() % 26 + 10); break;
 			}
 			lights.push_back(l);
 		}
@@ -203,9 +203,9 @@ public:
 			int c = rand() % 3;
 			switch (c)
 			{
-			case 0: d = new Zombie(rand() % 31 + 50, rand() % 26 + 10);
-			case 1: d = new Ork(rand() % 31 + 50, rand() % 26 + 10);
-			case 2: d = new Skeleton(rand() % 31 + 50, rand() % 26 + 10);
+			case 0: d = new Zombie(rand() % 31 + 50, rand() % 26 + 10); break;
+			case 1: d = new Ork(rand() % 31 + 50, rand() % 26 + 10); break;
+			case 2: d = new Skeleton(rand() % 31 + 50, rand() % 26 + 10); break;
 			}
 			darks.push_back(d);
 		}
@@ -213,15 +213,28 @@ public:
 
 	void print()
 	{
+		system("cls");
 		cout << "------- Lights -------" << endl;
 		lights.print();
 
-		cout << "------- Darks  -------" << endl;
-		darks.print();
+		gotoxy(45, 0);
+		cout << "------- Darks  -------";
+		darks.print(45, 1);
 	}
 
 	Warrior* fight(Warrior* w1, Warrior* w2)
 	{
+		w1->setHP(w1->getHP() - w2->getDamage());
+		w1->skill();
+		if (w1->getHP() < 0)
+		{
+			return w1;
+		}
+		w2->setHP(w2->getHP() - w1->getDamage());
+		if (w2->getHP() < 0)
+		{
+			return w2;
+		}
 		return nullptr;
 	}
 
@@ -248,8 +261,6 @@ public:
 			print();
 			system("pause");
 		}
-		
-
 	}
 };
 
