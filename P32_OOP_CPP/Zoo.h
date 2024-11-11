@@ -3,6 +3,14 @@
 
 using namespace std;
 
+class Printable
+{
+public:
+	virtual ~Printable() {}
+	virtual void print() = 0;
+};
+
+
 class Animal
 {
 	string name;
@@ -30,9 +38,10 @@ string Animal::voice()
 }
 
 
-class Cat : public Animal
+class Cat : public Animal, public Printable
 {
 	int* mouse;
+	int size = 0;
 
 public:
 	Cat(string name, int age, int mouse) : Animal(name, age) { this->mouse = new int[5]; }
@@ -51,6 +60,18 @@ public:
 	virtual string voice() override
 	{
 		return "Mau-Mau";
+	}
+
+	void cathMouse()
+	{
+		cout << "I`m cath mouse" << endl;
+		mouse[size++] = 1;
+	}
+
+	virtual void print() override
+	{
+		cout << getType() << endl;
+		cout << voice() << endl;
 	}
 };
 

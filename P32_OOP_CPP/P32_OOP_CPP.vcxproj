@@ -140,6 +140,8 @@
     <ClInclude Include="Inherit.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MyException.h" />
+    <ClInclude Include="NS.h" />
     <ClInclude Include="PrintServer.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Fraction.h" />

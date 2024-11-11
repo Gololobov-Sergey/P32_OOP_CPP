@@ -1,0 +1,2 @@
+Nov 11 2024 | 19:53:13 | C:\Users\gololobov\source\repos\P32_OOP_CPP\P32_OOP_CPP\Source.cpp | 80 | Ivalid argument (b = 0)
+Nov 11 2024 | 19:53:13 | C:\Users\gololobov\source\repos\P32_OOP_CPP\P32_OOP_CPP\Source.cpp | 80 | Ivalid argument (b = 0)

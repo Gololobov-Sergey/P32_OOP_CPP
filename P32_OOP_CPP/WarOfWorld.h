@@ -5,14 +5,27 @@
 
 using namespace std;
 
+class Skill
+{
+
+};
+
+class LowHealthSkill : public Skill
+{
+
+};
+
+
 class Warrior
 {
 	int hp;
 	int damage;
 
+	Skill* _skill;
+
 public:
 
-	Warrior(int hp, int damage) : hp(hp), damage(damage) { }
+	Warrior(int hp, int damage, Skill* sk = nullptr) : hp(hp), damage(damage), _skill(sk) { }
 
 	int getHP()
 	{
@@ -152,6 +165,11 @@ public:
 
 	virtual void skill() override
 	{
+		if (getHP() > 0)
+		{
+			int healing = (getDamage() * 20) / 100;
+			this->setHP(getHP() + healing);
+		}
 
 	}
 };
@@ -251,6 +269,15 @@ public:
 			Warrior* lose = fight(l, d);
 			if (lose == l)
 			{
+				Swordsman* sm = dynamic_cast<Swordsman*>(l);
+				if (sm)
+				{
+					for (size_t i = 0; i < lights.length(); i++)
+					{
+						lights[i]->setHP(lights[i]->getHP() + 10);
+					}
+				}
+				
 				lights.remove(index1);
 			}
 			else if(lose == d)

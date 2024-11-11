@@ -17,6 +17,8 @@
 #include"Inherit.h"
 #include"Zoo.h"
 #include"WarOfWorld.h"
+#include"MyException.h"
+#include"NS.h"
 
 using namespace std;
 
@@ -63,19 +65,84 @@ class Protocol
 };
 
 
+void print(Printable* c)
+{
+	c->print();
+}
+
+
 int main()
 {
 
+	// 11.11.2024 ---------------------------------------
 
-	WarOfWorld war(5);
-	war.game();
+	Animal* c = new Cat("Tom", 3, 5);
+	print(c);
+
+	//cout << c->getType() << endl;
+
+
+	/*namespace GOO = BOO::DOO;
+	
+	FOO::foo();
+	BOO::foo();
+	GOO::foo();
+
+	std::cout << "";
+
+	free(nullptr);
+
+	using std::cout;*/
+
+
+	
+
+	//try
+	//{
+	//	int a, b;
+	//	cin >> a >> b;
+	//	if (b != 0)
+	//		cout << a / b << endl;
+	//	else
+	//		throw MyException(__DATE__, __TIME__, __FILE__, __LINE__, "Ivalid argument (b = 0)");
+	//}
+	//catch (int a)
+	//{
+
+	//}
+	//catch (MyException& ex)
+	//{
+	//	ex.saveLog();
+	//	cout << ex.getError() << endl;
+	//}
+	//catch (const exception& ex)
+	//{
+	//	cout << ex.what() << endl;
+	//}
+	//catch (...)
+	//{
+	//	cout << "Fatal Error" << endl;
+	//}
+
+
+
+
+
+
+
+	/*WarOfWorld war(5);
+	war.game();*/
 
 
 	// 04.11.2024 ---------------------------------------
 
 
-	/*Animal* c = new Cat("Tom", 3, 10);
+	/*Animal* c = new Cat("Tom", 3, 5);
 	cout << c->getType() << endl;
+	Cat* cc = dynamic_cast<Cat*>(c);
+	if(cc)
+		cc->cathMouse();
+
 	delete c;*/
 
 	////Animal* a = new Animal("Animal", 5);
