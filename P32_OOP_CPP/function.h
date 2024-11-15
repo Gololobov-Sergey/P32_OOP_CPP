@@ -24,3 +24,19 @@ void gotoxy(int x, int y)
 	coord.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
+
+
+template<class T>
+void bubbleSort(T* arr, int size, bool (*method)(T a, T b))
+{
+	for (size_t i = 0; i < size - 1; i++)
+	{
+		for (size_t j = 0; j < size - 1 - i; j++)
+		{
+			if (method(arr[j], arr[j + 1]))
+			{
+				swap(arr[j], arr[j + 1]);
+			}
+		}
+	}
+}

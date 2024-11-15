@@ -19,6 +19,11 @@
 #include"WarOfWorld.h"
 #include"MyException.h"
 #include"NS.h"
+#include"TestSystem.h"
+#include"SmartPointer.h"
+#include<vector>
+#include<algorithm>
+#include<list>
 
 using namespace std;
 
@@ -65,19 +70,103 @@ class Protocol
 };
 
 
-void print(Printable* c)
+void print(Animal* c)
 {
-	c->print();
+	c->voice();
+}
+
+void ffff()
+{
+	SmartPointer<Student> s(new Student(2, "Vasya"));
+	//
+
+	unique_ptr<Student> p = make_unique<Student>(2, "Vasya");
+
+	unique_ptr<Student> p1 = make_unique<Student>(2, "Vasya");
+
+	p1 = move(p);
+
+	shared_ptr<Student>p3 = make_shared<Student>(2, "Vasya");
+
+	p.get()->info();
+
+	int a;
+	cin >> a;
+	if (a == 0)
+		throw "Error";
+
+	///
+
+
 }
 
 
 int main()
 {
+	SetConsoleOutputCP(1251);
+
+	/*TestSystem t;
+	t.login();*/
+
+	/*int b = 9, c = 99;
+	auto f = [=, &c](int a) {cout << a << " " << b++ << endl; };
+	f(1)*/;
+
+
+
+
+	vector<int> v({ 1,3,6,9,8,65,4,32,4,78 });
+
+	list<int> l(v.begin()+2, v.begin()+8);
+	for (int a : l)
+	{
+		cout << a << " ";
+	}
+
+
+	auto i = l.begin();
+	advance(i, 3);
+	cout << *i << endl;
+
+	/*cout << v.capacity() << endl;
+	cout << v.max_size() << endl;
+	v.insert(v.begin() + 3, 9999);
+	cout << v.capacity() << endl;
+
+	for (int a : v)
+	{
+		cout << a << " ";
+	}
+	cout << endl;
+
+
+	erase_if(v, [](int a) { return a < 5; });
+
+	for (size_t i = 0; i < v.size(); i++)
+	{
+		cout << v[i] << " ";
+	}
+	cout << endl;
+
+	vector<Student> vs;
+	vs.emplace(vs.begin(), 2, "Vasya");*/
+
+	/*int* aa = new int[]{ 12,3,3,45,6,8,9,7,6,54,3 };
+
+	bubbleSort(aa, 11, [](int a, int b) { return a > b; });*/
+
+	/*string st;
+	getline(cin, st);
+	hash<string> h;
+	int a = h(st);
+	cout << a << endl;*/
+
+
 
 	// 11.11.2024 ---------------------------------------
 
-	Animal* c = new Cat("Tom", 3, 5);
-	print(c);
+	/*Animal* c = new Cat("Tom", 3, 5);
+	print(c);*/
 
 	//cout << c->getType() << endl;
 

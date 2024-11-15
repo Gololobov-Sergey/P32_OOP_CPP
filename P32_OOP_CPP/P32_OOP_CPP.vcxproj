@@ -147,10 +147,12 @@
     <ClInclude Include="Fraction.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Relation.h" />
+    <ClInclude Include="SmartPointer.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="Staple.h" />
     <ClInclude Include="String.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="TestSystem.h" />
     <ClInclude Include="WarOfWorld.h" />
     <ClInclude Include="Zoo.h" />
   </ItemGroup>
