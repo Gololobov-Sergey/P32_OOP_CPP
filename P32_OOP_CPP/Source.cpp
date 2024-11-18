@@ -24,6 +24,8 @@
 #include<vector>
 #include<algorithm>
 #include<list>
+#include <conio.h>
+#include <map>
 
 using namespace std;
 
@@ -100,33 +102,121 @@ void ffff()
 
 }
 
+template<class Container>
+void print(Container c)
+{
+	for (auto el : c)
+	{
+		cout << el << " ";
+	}
+	cout << endl;
+}
+
 
 int main()
 {
 	SetConsoleOutputCP(1251);
 
+
+	vector<int> v({ 1,3,6,9,8,65,-4,32,4,78 });
+	print(v);
+	for_each(v.begin(), v.end(), [](int& a) { a *= 2; });
+	/*for (size_t i = 0; i < v.size(); i++)
+	{
+		v[i] *= 2;
+	}*/
+	print(v);
+	cout << all_of(v.begin(), v.end(), [](int a) { return a > 0; }) << endl;
+
+	auto i = find(v.begin(), v.end(), 8);
+	cout << *i << endl;
+	int p = distance(i, v.begin());
+	cout << p << endl;
+
+
 	/*TestSystem t;
-	t.login();*/
+	t.menu();*/
+
+	/*string password = "";
+	char c;
+	while ((c = _getch()) != '\r')
+	{
+		password += c;
+		std::cout << "*";
+	}
+	cout << password << endl;*/
+
 
 	/*int b = 9, c = 99;
 	auto f = [=, &c](int a) {cout << a << " " << b++ << endl; };
-	f(1)*/;
+	f(1);*/
+
+	/*map<string, string> m;
+	m["1"] = "mama";
+	m["one"] = "papa";
+	m.insert(pair{ "10", "sdf" });
+	m["1"] = "baba";
+	auto i = m.begin();
+	for (auto i : m)
+	{
+		cout << i.first << " " << i.second << endl;
+	}
+
+	auto ii = m.find("one");
+	cout << (*ii).second << endl;*/
 
 
-
-
-	vector<int> v({ 1,3,6,9,8,65,4,32,4,78 });
+	/*vector<int> v({ 1,3,6,9,8,65,4,32,4,78 });
 
 	list<int> l(v.begin()+2, v.begin()+8);
 	for (int a : l)
 	{
 		cout << a << " ";
 	}
-
+	cout << endl;
 
 	auto i = l.begin();
 	advance(i, 3);
-	cout << *i << endl;
+	l.insert(i, 999);
+	for (int a : l)
+	{
+		cout << a << " ";
+	}
+	cout << endl;*/
+
+
+	//list<Fraction> lf;
+	//lf.emplace_back(2, 5);
+	//lf.emplace_back(3, 5);
+	//lf.emplace_back(3, 5);
+	//lf.emplace_back(3, 5);
+	//lf.emplace_back(3, 5);
+	//lf.emplace_back(3, 5);
+	//lf.emplace_back(3, 5);
+	//lf.emplace_back(1, 5);
+	//lf.emplace_back(4, 5);
+	//print(lf);
+	///*lf.erase(next(lf.begin(), 2));
+	//print(lf);*/
+
+	//list<Fraction> lf1;
+	//lf1.emplace_back(2, 5);
+	//lf1.emplace_back(3, 5);
+	//lf1.emplace_back(1, 5);
+	//lf1.emplace_back(4, 5);
+
+	//lf.insert(lf.end(), next(lf1.begin(), 1), next(lf1.begin(), 3));
+	//print(lf);
+
+	//lf.remove_if([](Fraction f) { return f == Fraction(3, 5); });
+	//print(lf);
+
+	//lf.sort();
+	//print(lf);
+	//lf.unique();
+	//print(lf);
+
+
 
 	/*cout << v.capacity() << endl;
 	cout << v.max_size() << endl;

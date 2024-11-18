@@ -7,6 +7,8 @@ using namespace std;
 class User
 {
 	string login;
+	string password;
+
 	//
 
 public:
@@ -50,11 +52,38 @@ class TestSystem
 
 public:
 
+	void menu()
+	{
+		cout << "1.Register\n2.Login\n3.Exit\n";
+		int c;
+		cin >> c;
+		cin.ignore();
+		switch (c)
+		{
+		case 0:
+			reg();
+			break;
+		case 1:
+			login(); break;
+		case 2: exit(0);
+		default:
+			break;
+		}
+	}
+
+	void reg()
+	{
+
+	}
+
 	void login()
 	{
 		string login;
 		getline(cin, login);
-		if (login == "admin")
+
+
+
+		if (login == "admin" /*&& ...*/)
 		{
 			user = new Admin(login);
 		}
